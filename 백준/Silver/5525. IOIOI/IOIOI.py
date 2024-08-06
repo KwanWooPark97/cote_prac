@@ -1,17 +1,19 @@
-from collections import Counter
 import sys
 
-n=int(sys.stdin.readline())
-m=int(sys.stdin.readline())
+input = sys.stdin.readline
+N = int(input())
+M = int(input())
+S = input().rstrip()
+left, right = 0, 0
+answer = 0
 
-s=sys.stdin.readline().rstrip()
+while right < M:
+    if S[right:right + 3] == 'IOI':
+        right += 2
+        if right - left == 2 * N:
+            answer += 1
+            left += 2
+    else:
+        left = right = right + 1
 
-a='IO'*n+'I'
-cnt=0
-
-for i in range(m-(2*n)):
-    b=s[i:(2*n+1)+i]
-    if b==a:
-        cnt+=1
-print(cnt)
-
+print(answer)
