@@ -1,9 +1,10 @@
 import copy
-n=int(input())
+import sys
+n=int(sys.stdin.readline())
 ca=[0]*100
 cb=[0]*100
 for i in range(n):
-    a,b=map(int,input().split())
+    a,b=map(int,sys.stdin.readline().split())
     ca[a]+=1
     cb[b]+=1
     answer=0
